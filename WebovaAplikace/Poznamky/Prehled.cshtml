@@ -1,0 +1,33 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+@using Microsoft.AspNetCore.Http;
+@using WebovaAplikace.Models;
+
+@model List<Poznamka>;
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Přehled poznámek";
+
+    HttpContext? httpContext = HttpContextAccessor.HttpContext;
+    bool pristupOveren = (httpContext != null) && (httpContext.Session.GetString("PristupOveren") == "Ano");
+
+}
+
+@foreach(Poznamka poznamka in Model)
+{
+    DateTime casPridani = poznamka.CasPridani;
+    string nadpis = poznamka.Nadpis;
+    string text = poznamka.Text;
+    int id = poznamka.Id;
+
+    int delkaUryvku = 80;
+
+    if (delkaUryvku > text.Length)
+        delkaUryvku = text
+    while(text.ToCharArray()[delkaUryvku - 1] != ' ')
+    {
+        if (delkaUryvku == text.Length)
+            break;
+
+        delkaUryvku += 1;
+    }

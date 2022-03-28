@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Přidat poznámku";
+}
+
+<form>
+    <input name="nadpis" placeholder="Nadpis poznámky..." type="text" /><br />
+    <textarea name="text" placeholder="Text poznámky..."></textarea><br />
+    <input value="Přidat poznámku" type="submit" formaction="/Poznamky/Pridat" formmethod="post" />
+</form>

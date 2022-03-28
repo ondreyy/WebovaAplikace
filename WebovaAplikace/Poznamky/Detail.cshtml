@@ -1,0 +1,8 @@
+﻿@model WebovaAplikace.Models.Poznamka;
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.Nadpis;
+}
+
+<p><span><i>Přidáno @Model.CasPridani</i></span></p>
+<p>@Model.Text</p>
