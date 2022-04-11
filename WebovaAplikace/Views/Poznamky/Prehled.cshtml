@@ -13,6 +13,11 @@
 
 }
 
+@if(Model == null || Model.Count == 0)
+{
+    <p><i>Dosud nebyly <a href="/Poznamky/Pridat">přidány</a> žádné poznámky</i></p>
+}
+
 @foreach(Poznamka poznamka in Model)
 {
     DateTime casPridani = poznamka.CasPridani;
@@ -23,7 +28,8 @@
     int delkaUryvku = 80;
 
     if (delkaUryvku > text.Length)
-        delkaUryvku = text
+        delkaUryvku = text.Length;
+
     while(text.ToCharArray()[delkaUryvku - 1] != ' ')
     {
         if (delkaUryvku == text.Length)
@@ -31,3 +37,4 @@
 
         delkaUryvku += 1;
     }
+}

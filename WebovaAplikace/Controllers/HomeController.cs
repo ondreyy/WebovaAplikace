@@ -4,7 +4,7 @@ using WebovaAplikace.Models;
 
 namespace WebovaAplikace.Controllers
 {
-    public class VychoziController : Controller
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {

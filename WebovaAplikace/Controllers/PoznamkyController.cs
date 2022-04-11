@@ -46,12 +46,6 @@ namespace WebovaAplikace.Controllers
         }
 
         [HttpGet]
-        public IActionResult Podekovani()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public IActionResult Prehled()
         {
             List<Poznamka> poznamkyVDatabazi = Databaze.Poznamky.ToList();
@@ -70,7 +64,7 @@ namespace WebovaAplikace.Controllers
 
             if(vyzadanaPoznamka == null)
             {
-                return RedirectToAction("Error", "Vychozi");
+                return RedirectToAction("Error", "Home");
             }
 
             return View(vyzadanaPoznamka);

@@ -18,7 +18,7 @@
     <header>
         <nav>
             <a href="">Domů</a>
-            <a href="">Domů</a>
+            <a href="/Poznamky/Prehled">Přehled poznámek</a>
             @if(pristupOveren)
             {
             <a href="/Poznamky/Pridat">Přidat poznámku</a>
@@ -26,7 +26,7 @@
             }
             else
             {
-                <a href="/Pristup/Overit" style="position: absolute; right: 10px">Přihlásit se</a>
+                <a href="/Pristup/Zkontrolovat" style="position: absolute; right: 10px">Přihlásit se</a>
             }
         </nav>
     </header>
@@ -43,9 +43,6 @@
             <p>Copyright &copy; 2022 Ondřej Foltín</p>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/site.js"></script>
 </body>
 </html>

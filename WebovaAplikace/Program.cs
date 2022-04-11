@@ -13,6 +13,10 @@ namespace WebovaAplikace
             // nastaveni tvorice aplikace
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddDbContext<Data.NasDatovyKontext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

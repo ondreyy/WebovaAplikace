@@ -14,7 +14,7 @@ namespace WebovaAplikace.Controllers
         }
 
         [HttpGet]
-        public IActionResult Overit()
+        public IActionResult Zkontrolovat()
         {
             Pristup? existujiciPristup = Databaze.Pristup.FirstOrDefault();
 
@@ -27,13 +27,13 @@ namespace WebovaAplikace.Controllers
         }
 
         [HttpPost]
-        public IActionResult Overit(string heslo)
+        public IActionResult Zkontrolovat(string heslo)
         {
             string spravneHeslo = Databaze.Pristup.First().Heslo;
 
             if (!BCrypt.Net.BCrypt.Verify(heslo, spravneHeslo))
             {
-                return RedirectToAction("Overit");
+                return RedirectToAction("Zkontrolovat");
             }
 
             HttpContext.Session.SetString("PristupOveren", "Ano");
@@ -48,7 +48,7 @@ namespace WebovaAplikace.Controllers
 
             if (existujiciPristup != null)
             {
-                return RedirectToAction("Overit");
+                return RedirectToAction("Zkontrolovat");
             }
 
             return View();
@@ -67,7 +67,7 @@ namespace WebovaAplikace.Controllers
             Databaze.Pristup.Add(new Pristup() { Heslo = heslo });
             Databaze.SaveChanges();
 
-            return RedirectToAction("Overit");
+            return RedirectToAction("Zkontrolovat");
         }
 
         [HttpGet]
@@ -75,7 +75,7 @@ namespace WebovaAplikace.Controllers
         {
             HttpContext.Session.Clear();
 
-            return RedirectToAction("Index", "Vychozi");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
