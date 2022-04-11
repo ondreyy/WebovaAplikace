@@ -6,6 +6,9 @@ namespace WebovaAplikace.Models
     public class Pristup
     {
         [Key]
-        public string? Heslo { get; set; } = null;
+        public string Uzivatel { get; set; }
+
+        [Required]
+        public string Heslo { get; set; }
     }
 }

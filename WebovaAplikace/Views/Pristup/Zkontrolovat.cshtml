@@ -4,7 +4,13 @@
 }
 
 <form action="/Pristup/Zkontrolovat" method="post">
+    <input type="text" name="uzivatel" placeholder="Zadej uživatelské jméno..." /><br />
     <input type="password" name="heslo" placeholder="Zadejte své heslo..." /><br />
     <input type="submit" value="Přihlásit se" />
 </form>
+
+<div>
+    <p>Nejsi ještě zaregistrovaný</p>
+    <a href="/Pristup/Vytvorit">Zaregistrovat se</a>
+</div>
 

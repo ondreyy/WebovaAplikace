@@ -27,13 +27,15 @@ namespace WebovaAplikace.Controllers
         }
 
         [HttpPost]
-        public IActionResult Zkontrolovat(string heslo)
+        public IActionResult Zkontrolovat(string uzivatel, string heslo)
         {
-            string spravneHeslo = Databaze.Pristup.First().Heslo;
+            Pristup? uzivatel = Databaze.Pristup
+                .Where(pristup => pristup.Uzivatel == uzivatel)
+                .FirstOrDefault();
 
-            if (!BCrypt.Net.BCrypt.Verify(heslo, spravneHeslo))
+            if (!BCrypt.Net.BCrypt.Verify(heslo, uzivatel.Heslo))
             {
-                return RedirectToAction("Zkontrolovat");
+                return RedirectToAction("Overit");
             }
 
             HttpContext.Session.SetString("PristupOveren", "Ano");
