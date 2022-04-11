@@ -46,6 +46,12 @@ namespace WebovaAplikace.Controllers
         }
 
         [HttpGet]
+        public IActionResult Podekovani()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult Prehled()
         {
             List<Poznamka> poznamkyVDatabazi = Databaze.Poznamky.ToList();
